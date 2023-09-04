@@ -1,0 +1,118 @@
+<div class="shopping-cart">
+    <h1>Shopping Cart</h1>
+  
+    <div class="cart-items">
+      <div class="cart-item" *ngFor="let item of matchedItems; let i = index" [routerLink]="['/shop/product', item.store_id, item.id]" >
+        <img src="{{ item.image }}" alt="{{ item.name }}" class="item-image">
+        <div class="item-details">
+          <h2>{{ item.name }}</h2>
+          <p>規格: {{ item.price[spec[i]].spec }}</p>
+          <p>價格: ${{ item.price[spec[i]].value }}</p>
+          <p>數量:</p>
+          <button (click)="decreaseQuantity(i)">-</button>
+          <input type="number" id="product-quantity" [(ngModel)]="quantity[i]" min="1">
+          <button (click)="increaseQuantity(i)">+</button>
+        </div>
+        <img class="item-icon" (click)="deleteItem(item.store_id,item.id,i)" src="https://shop.greattree.com.tw/Content/images/zh-cht/icons/icon_delete_black.png">
+      </div>
+    </div>
+    <div class=checkoutList *ngIf="showCheckout">
+      <form [formGroup]="orderForm">
+      <div class="checkout-form" formGroupName="checkout">
+        <h2>付款及配送</h2>
+        <div class="form-group">
+          <label for="deliveryArea">配送區域:</label>
+          <select id="deliveryArea" class="form-control" formControlName="selectedDeliveryArea" >
+            <option value="台灣">台灣</option>
+          </select>
+          <label for="PayMethod">付款方式:</label>
+          <select id="PayMethod" class="form-control" formControlName="selectedPayMethod">
+            <option value="Line Pay">Line Pay</option>
+            <option value="信用卡分三期">信用卡分三期</option>
+            <option value="信用卡分六期">信用卡分六期</option>
+            <option value="ATM轉帳">ATM轉帳</option>
+            <option value="信用卡刷卡">信用卡刷卡</option>
+          </select>
+          <label for="DeliveryMethod">配送方式:</label>
+          <select id="DeliveryMethod" class="form-control" formControlName="selectedDeliveryMethod">
+            <option value="宅配">宅配</option>
+            <option value="藥局領貨">藥局領貨</option>
+          </select>
+        </div>
+      </div>
+      <div class="memberInfo" formGroupName="memberInfo">
+        <h2>訂購人資訊</h2>
+          <div class="form-group">
+            <label for="name">訂購人姓名:</label>
+            <input type="text" id="name" name="name" formControlName="memberName">
+          </div>
+          <div class="form-group">
+            <label for="phone">訂購人手機號碼:(+886)</label>
+            <input type="text" id="phone" name="phone" formControlName="memberPhone">
+          </div>
+      </div>
+      <div class="receiverInfo" formGroupName="receiverInfo">
+        <h2>取件人資訊</h2>
+          <div class="form-group">
+            <label for="name">取件人姓名:</label>
+            <input type="text" id="name" name="name" formControlName="receiverName">
+          </div>
+          <div class="form-group">
+            <label for="phone">取件人手機號碼:(+886)</label>
+            <input type="text" id="phone" name="phone" formControlName="receiverPhone">
+          </div>
+      </div>
+      <div class="invoice-info" formGroupName="invoiceInfo">
+        <h2>發票資訊</h2>
+          <div class="form-group">
+          <label for="invoice-type">發票類型:</label>
+          <select id="invoice-type" class="form-control" name="form-control" formControlName ="selectedInvoiceType">
+            <option value="統編">統編(公司戶)發票</option>
+            <option value="手機載具條碼">電子發票(手機載具條碼)</option>
+            <option value="自然人憑證歸戶">電子發票(自然人憑證歸戶)</option>
+            <option value="愛心捐贈發票">愛心捐贈發票</option>
+            <option value="會員載具">會員載具</option>
+          </select>
+          </div>
+            <div class="form-group">
+              <label for="Email">E-Mail：</label>
+              <input type="text" id="Email" name="Email" placeholder="請輸入Email" formControlName="email">
+            </div>
+            <div class="form-group" *ngIf="orderForm.get('invoiceInfo.selectedInvoiceType')!.value == '統編'">
+              <label for="invoice-tax-id">統一編號：</label>
+              <input type="text" id="invoice-tax-id" name="invoice-tax-id" placeholder="如需打統編請輸入統一編號" formControlName="invoiceTaxId">
+              <input type="text" id="invoice-tax-id-head" name="invoice-tax-id-head" placeholder="如需打統編請輸入統一編號抬頭" formControlName="invoiceTaxIdHead">
+            </div>
+            <div class="form-group" *ngIf="orderForm.get('invoiceInfo.selectedInvoiceType')!.value == '手機載具條碼'">
+              <label for="phone-id">手機條碼載具：</label>
+              <input type="text" id="phone-id" name="phone-id" placeholder="請輸入手機條碼載具，共八碼" formControlName="phoneId">
+            </div>
+            <div class="form-group" *ngIf="orderForm.get('invoiceInfo.selectedInvoiceType')!.value == '自然人憑證歸戶'" >
+              <label for="nature-id">自然人憑證載具：</label>
+              <input type="text" id="nature-id" name="nature-id" placeholder="請輸入自然人憑證載具" formControlName="natureId">
+            </div>
+            <div class="form-group" *ngIf="orderForm.get('invoiceInfo.selectedInvoiceType')!.value == '愛心捐贈發票'">
+              <label for="donate-invoice">捐贈單位：</label>
+              <select id="donate-invoice" class="form-control" name="form-control" formControlName="selectedDonate">
+                <option value="財團法人中華民國自閉症基金會">財團法人中華民國自閉症基金會</option>
+                <option value="財團法人喜憨兒社會福利基金會(喜憨兒)">財團法人喜憨兒社會福利基金會(喜憨兒)</option>
+              </select>
+            </div>
+      </div>
+      <div class="order-notes">
+        <h2>訂單備註</h2>
+        <textarea rows="4" name="order-notes"></textarea>
+      </div>
+    </form>
+    </div>
+    <div class="cart-summary">
+      <p>Total Items: {{ getTotalItems() }}</p>
+      <p>Total Price: ${{ getTotalPrice() }}</p>
+    </div>
+    <div class="checkout" *ngIf="!showCheckout">
+      <button (click)="show()">立即結帳</button>
+    </div>
+    <div class="checkout" *ngIf="showCheckout">
+      <button (click)="checkout()" [disabled]="orderForm.invalid">立即結帳</button>
+    </div>
+  </div>

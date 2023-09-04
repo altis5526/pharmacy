@@ -1,0 +1,129 @@
+.shopping-cart {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .cart-items {
+    margin-top: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: palegoldenrod;
+    cursor: pointer;
+  }
+  
+  .cart-item img:last-child{
+    position: relative;
+    right:10px;
+    width: 30px;
+  }
+  .item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  
+  .item-details {
+    flex-grow: 1;
+  }
+  .item-details input{
+    width:15%;
+  }
+  .cart-summary {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: bisque;
+  }
+  .cart-summary p:last-child {
+    margin-left: 5px;
+  }
+  .checkout{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+  }
+
+  /* 整體訂單表單樣式 */
+.checkoutList {
+  margin: 0 auto;
+}
+.checkoutList > * {
+  background-color: bisque;
+}
+/* 表單區塊標題樣式 */
+.checkoutList h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* 表單樣式 */
+form {
+  margin-top: 20px;
+}
+
+/* 表單元素樣式 */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 提示文字樣式 */
+.form-group input::placeholder,
+.form-group select::placeholder {
+  color: #999;
+}
+
+/* 顯示選中發票類型相關欄位 */
+.invoice-tax-id.show,
+.phone-id.show,
+.nature-id.show,
+.donate-invoice.show,
+.Email.show {
+  display: block;
+}
+.order-notes{
+  margin-top: 20px;
+}
+.order-notes textarea{
+  width: 99%;
+}
+/* 結帳按鈕樣式 */
+.checkout button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkout button:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,104 @@
+<header>
+    <h1 a routerLink="/shop/lobby" (click)="setMenuItemIndex(0)">Home</h1>
+    <nav>
+      <div class="search-bar">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="搜索產品">
+        <button type="submit" (click)="search()">搜索</button> 
+      </div>
+      <ul class="category-links">
+        <li><a (click)="setMenuItemIndex(1)">嬰幼兒與家庭</a>
+        </li>
+        <li><a (click)="setMenuItemIndex(2)">寵物保健用品</a>
+        </li>
+        <li><a (click)="setMenuItemIndex(3)">藥物與保健食品</a>
+            <ul>
+                <li><a href="#">紓壓好眠</a>
+                </li>
+                <li><a href="#">過敏</a>
+                </li>
+                <li><a href="#">頭痛</a>
+                </li>
+                <li><a href="#">感冒流感</a>
+                </li>
+                <li><a href="#">男性保健</a>
+                </li>
+                <li><a href="#">女性保健</a>
+                    <ul>
+                        <li><a href="#">月經問題</a>
+                        </li>
+                        <li><a href="#">親密與身體衛生</a>
+                        </li>
+                        <li><a href="#">衛生用品</a>
+                        </li>
+                        <li><a href="#">陰道保健</a>
+                        </li>
+                        <li><a href="#">停經</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">防禦升級</a>
+                </li>
+                <li><a href="#">眼睛、鼻子耳朵保健</a>
+                    <ul>
+                        <li><a href="#">鼻子</a>
+                            <ul>
+                                <li><a href="#">打鼾</a>
+                                </li>
+                                <li><a href="#">鼻貼</a>
+                                </li>
+                                <li><a href="#">鼻腔沖洗</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">眼睛</a>
+                            <ul>
+                                <li><a href="#">黃斑部保養</a>
+                                </li>
+                                <li><a href="#">眼睛乾澀</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">耳朵</a>
+                            <ul>
+                                <li><a href="#">耳痛</a>
+                                </li>
+                                <li><a href="#">耳鳴</a>
+                                </li>
+                                <li><a href="#">聽力保護與護理</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">關節保健</a>
+                </li>
+                <li><a href="#">心血管保健</a>
+                </li>
+                <li><a href="#">腸胃保健</a>
+                </li>
+                <li><a href="#">減脂窈窕</a>
+                </li>
+                <li><a href="#">兒童成長保健</a>
+                </li>
+                <li><a href="#">維他命</a>
+                </li>
+                <li><a href="#">順勢療法與天然產品</a>
+                </li>
+                <li><a href="#">逆齡美肌保健</a>
+                </li>
+            </ul>
+        </li>
+        <li><a (click)="setMenuItemIndex(4)">醫療用品</a>
+        </li>
+        <li><a (click)="setMenuItemIndex(5)">藥妝保養</a>
+        </li>
+        <li><a (click)="setMenuItemIndex(6)">日常護理</a>
+        </li>
+      </ul>
+    </nav>
+</header>
+<body>
+    <div class="white-box"></div>   
+</body>
+<!-- (click)="searchByCategory('產品1')" -->
+

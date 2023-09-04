@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.store-info {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.store-info table {
+  width: 70%;
+  border-collapse: collapse;
+}
+
+.store-info td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+.store-info img {
+  width: 200px;
+  height: 150px;
+  margin-right: 10px;
+}
+
+.store-name {
+  font-weight: bold;
+}
+
+.store-status {
+  color: green;
+}
+
+.rating-label,
+.response-rate-label {
+  font-size: 14px;
+}
+
+.rating-value,
+.response-rate-value {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.right-menu {
+  width: 100%;
+}
+section.products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product {
+  width: 35%;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  border-radius: 4%; 
+}
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+.product:hover {
+  /* 添加你想要的樣式，例如修改背景顏色、添加陰影效果等 */
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+.price{
+  color: red;
+  font-size: 25px;
+}

@@ -1,0 +1,539 @@
+{
+  "profile": [
+    {
+      "id": "1",
+      "phone": "2",
+      "name": "frank3",
+      "password": "2",
+      "email": "dsa@gmail.com",
+      "shop_list": [],
+      "room_id": [],
+      "deliver_info": {
+        "selectedDeliveryArea": "",
+        "selectedPayMethod": "",
+        "selectedDeliveryMethod": "",
+        "memberName": "",
+        "memberPhone": "",
+        "selectedInvoiceType": ""
+      },
+      "order_list": []
+    },
+    {
+      "id": "2",
+      "phone": "0960909369",
+      "name": "chun",
+      "password": "melody1210",
+      "email": "melody891210@gmail.com",
+      "shop_list": [],
+      "room_id": [],
+      "deliver_info": {
+        "selectedDeliveryArea": "",
+        "selectedPayMethod": "",
+        "selectedDeliveryMethod": "",
+        "memberName": "",
+        "memberPhone": "",
+        "selectedInvoiceType": ""
+      },
+      "order_list": []
+    },
+    {
+      "id": "3",
+      "phone": "0936483853",
+      "name": "張祐嘉",
+      "password": "",
+      "email": "frank20020528@gmail.com",
+      "shop_list": [],
+      "room_id": [
+        {
+          "1": "1-room-3"
+        }
+      ],
+      "deliver_info": {
+        "selectedDeliveryArea": "台灣",
+        "selectedPayMethod": "信用卡分三期",
+        "selectedDeliveryMethod": "宅配",
+        "memberName": "frank",
+        "memberPhone": "0936483853",
+        "selectedInvoiceType": "統編"
+      },
+      "order_list": [
+        {
+          "orderId": "0666",
+          "startTime": "08/30 10:45",
+          "confirmTime": "08/30 16:55",
+          "deliverTime": "08/30 16:55",
+          "arriveTime": "08/30 16:55",
+          "completeTime": "08/30 16:55",
+          "item": [
+            [
+              1,
+              1,
+              4,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          "totalAmount": "900",
+          "status": "complete",
+          "shipMethod": "宅配",
+          "payMethod": "信用卡分三期"
+        },
+        {
+          "orderId": "7593",
+          "startTime": "08/30 14:59",
+          "confirmTime": "none",
+          "deliverTime": "none",
+          "arriveTime": "none",
+          "completeTime": "none",
+          "item": [
+            [
+              2,
+              2,
+              1,
+              0
+            ]
+          ],
+          "totalAmount": "100",
+          "status": "submit",
+          "shipMethod": "宅配",
+          "payMethod": "信用卡分三期"
+        }
+      ]
+    }
+  ],
+  "manager": [
+    {
+      "name": "store1",
+      "password": "0",
+      "id": "1",
+      "room_id": [
+        {
+          "1": "1-room-3"
+        }
+      ],
+      "order_list": [
+        {
+          "userId": "3",
+          "orderId": "0666",
+          "item": [
+            [
+              1,
+              1,
+              4,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          "startTime": "08/30 14:59",
+          "totalAmount": "900",
+          "phone": "0936483853",
+          "shipMethod": "宅配",
+          "payMethod": "信用卡分三期",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "name": "store2",
+      "password": "0",
+      "id": "2",
+      "room_id": [],
+      "order_list": [
+        {
+          "userId": "3",
+          "orderId": "7593",
+          "item": [
+            [
+              2,
+              2,
+              1,
+              0
+            ]
+          ],
+          "startTime": "08/30 14:59",
+          "totalAmount": "100",
+          "phone": "0936483853",
+          "shipMethod": "宅配",
+          "payMethod": "信用卡分三期",
+          "status": "submit"
+        }
+      ]
+    }
+  ],
+  "product": [
+    {
+      "name": "產品 1",
+      "description": "這是產品 1 的描述",
+      "id": "1",
+      "image": "https://as.chdev.tw/web/article/2/3/4/2f0dafc3-37c9-465c-9254-50f1be84cb3a1570247852.jpg",
+      "price": [
+        {
+          "spec": "單一規格",
+          "value": "100"
+        },
+        {
+          "spec": "第二規格",
+          "value": "200"
+        }
+      ],
+      "store_id": "1",
+      "ad": [
+        [
+          "https://img4.momoshop.com.tw/expertimg/0008/082/347/mobile/0.jpg?t=1685608607448"
+        ],
+        [
+          "https://img4.momoshop.com.tw/expertimg/0008/082/347/mobile/4.jpg?t=1685608607448"
+        ]
+      ],
+      "Spec": [
+        {
+          "name": "品牌名稱",
+          "value": "產品1"
+        },
+        {
+          "name": "對象與族群",
+          "value": "男 女 兒童 青少年 成年 銀髮族 孕婦"
+        },
+        {
+          "name": "包裝組合",
+          "value": "多入組"
+        },
+        {
+          "name": "類型",
+          "value": "膠囊"
+        },
+        {
+          "name": "成份",
+          "value": "魚油    Omega3"
+        },
+        {
+          "name": "產地",
+          "value": "台灣"
+        },
+        {
+          "name": "商品規格",
+          "value": "1.商品組合/規格：60粒/盒2.商品品名：大研德國頂級魚油3.商品重(容)量：60粒/每粒820毫克（含膠囊220毫克）。4.食用方式：一般保養每日2粒，加強保養早晚各2粒，建議隨餐或飯後搭配開水食用，多食無益。5.內容物名稱(成分)：魚油(含魚油（含Omega-3脂肪酸）、混合濃縮生育醇（抗氧化劑））、膠囊(明膠、濃水、甘油)6.食品添加物名稱：無7.原產地(國)：台灣8.製造廠商或國內負責廠商名稱：大研生醫國際股份有限公司9.製造廠商或國內負責廠商地址：台北市大安區羅斯福路三段37號12樓10.製造廠商或國內負責廠商電話：02-2365138011.以消費者收受日算起，至少距有效日期前?日以上：保存期限3年，依包裝所示12.食品業者登錄字號：A-150784323-00000-013.投保產品責任險字號：新光產物產品責任險保單號碼130007AKP0000933備註欄：無"
+        }
+      ],
+      "Comment": [
+        {
+          "name": "User1",
+          "value": "留言"
+        },
+        {
+          "name": "張祐嘉",
+          "value": "75252542"
+        }
+      ]
+    },
+    {
+      "name": "產品 2",
+      "description": "這是產品 2 的描述",
+      "id": "2",
+      "image": "https://as.chdev.tw/web/article/2/3/4/2f0dafc3-37c9-465c-9254-50f1be84cb3a1570247852.jpg",
+      "price": [
+        {
+          "spec": "單一規格",
+          "value": "100"
+        }
+      ],
+      "store_id": "2",
+      "ad": [],
+      "Spec": [],
+      "Comment": [
+        {
+          "name": "User1",
+          "value": "留言"
+        }
+      ]
+    },
+    {
+      "name": "產品 3",
+      "description": "這是產品 3 的描述",
+      "id": "3",
+      "image": "https://as.chdev.tw/web/article/2/3/4/2f0dafc3-37c9-465c-9254-50f1be84cb3a1570247852.jpg",
+      "price": [
+        {
+          "spec": "單一規格",
+          "value": "100"
+        }
+      ],
+      "store_id": "1",
+      "ad": [],
+      "Spec": [],
+      "Comment": [
+        {
+          "name": "User1",
+          "value": "留言"
+        }
+      ]
+    },
+    {
+      "name": "產品 4",
+      "description": "這是產品 4 的描述",
+      "id": "4",
+      "image": "https://as.chdev.tw/web/article/2/3/4/2f0dafc3-37c9-465c-9254-50f1be84cb3a1570247852.jpg",
+      "price": [
+        {
+          "spec": "單一規格",
+          "value": "100"
+        }
+      ],
+      "store_id": "1",
+      "ad": [],
+      "Spec": [],
+      "Comment": [
+        {
+          "name": "User1",
+          "value": "留言"
+        }
+      ]
+    },
+    {
+      "name": "產品 5",
+      "description": "這是產品 5 的描述",
+      "id": "5",
+      "image": "https://as.chdev.tw/web/article/2/3/4/2f0dafc3-37c9-465c-9254-50f1be84cb3a1570247852.jpg",
+      "price": [
+        {
+          "spec": "單一規格",
+          "value": "100"
+        }
+      ],
+      "store_id": "1",
+      "ad": [],
+      "Spec": [],
+      "Comment": [
+        {
+          "name": "User1",
+          "value": "留言"
+        }
+      ]
+    },
+    {
+      "name": "產品 6",
+      "description": "這是產品 6 的描述",
+      "id": "6",
+      "image": "https://as.chdev.tw/web/article/2/3/4/2f0dafc3-37c9-465c-9254-50f1be84cb3a1570247852.jpg",
+      "price": [
+        {
+          "spec": "單一規格",
+          "value": "100"
+        }
+      ],
+      "store_id": "1",
+      "ad": [],
+      "Spec": [],
+      "Comment": [
+        {
+          "name": "User1",
+          "value": "留言"
+        }
+      ]
+    },
+    {
+      "name": "產品 7",
+      "description": "這是產品 7 的描述",
+      "id": "7",
+      "image": "https://as.chdev.tw/web/article/2/3/4/2f0dafc3-37c9-465c-9254-50f1be84cb3a1570247852.jpg",
+      "price": [
+        {
+          "spec": "單一規格",
+          "value": "100"
+        }
+      ],
+      "store_id": "1",
+      "ad": [],
+      "Spec": [],
+      "Comment": [
+        {
+          "name": "User1",
+          "value": "留言"
+        }
+      ]
+    },
+    {
+      "name": "產品 8",
+      "description": "這是產品 8 的描述",
+      "id": "8",
+      "image": "https://as.chdev.tw/web/article/2/3/4/2f0dafc3-37c9-465c-9254-50f1be84cb3a1570247852.jpg",
+      "price": [
+        {
+          "spec": "單一規格",
+          "value": "100"
+        }
+      ],
+      "store_id": "1",
+      "ad": [],
+      "Spec": [],
+      "Comment": [
+        {
+          "name": "User1",
+          "value": "留言"
+        }
+      ]
+    },
+    {
+      "name": "產品 9",
+      "description": "這是產品 9 的描述",
+      "id": "9",
+      "image": "https://as.chdev.tw/web/article/2/3/4/2f0dafc3-37c9-465c-9254-50f1be84cb3a1570247852.jpg",
+      "price": [
+        {
+          "spec": "單一規格",
+          "value": "100"
+        }
+      ],
+      "store_id": "1",
+      "ad": [],
+      "Spec": [],
+      "Comment": [
+        {
+          "name": "User1",
+          "value": "留言"
+        }
+      ]
+    },
+    {
+      "name": "產品 10",
+      "description": "這是產品 10 的描述",
+      "id": "10",
+      "image": "https://as.chdev.tw/web/article/2/3/4/2f0dafc3-37c9-465c-9254-50f1be84cb3a1570247852.jpg",
+      "price": [
+        {
+          "spec": "單一規格",
+          "value": "100"
+        }
+      ],
+      "store_id": "1",
+      "ad": [],
+      "Spec": [],
+      "Comment": [
+        {
+          "name": "User1",
+          "value": "留言"
+        }
+      ]
+    },
+    {
+      "name": "產品11",
+      "description": "test",
+      "id": "11",
+      "image": "blob:http://localhost:4200/020e0791-acd1-477c-8a5d-b3b4dcccea28",
+      "price": [
+        {
+          "spec": "spec1",
+          "value": "100"
+        },
+        {
+          "spec": "spec2",
+          "value": "100"
+        }
+      ],
+      "store_id": "1",
+      "ad": [
+        [
+          "blob:http://localhost:4200/2fcd9bf6-cf3e-4712-a31b-3f0ed1797e43"
+        ],
+        [
+          "blob:http://localhost:4200/cf119c56-3009-4c0f-955f-3c3aa57625b1"
+        ],
+        [
+          "blob:http://localhost:4200/7fe8eab3-6eab-424c-9a6b-f0167c0348b5"
+        ]
+      ],
+      "Spec": [
+        {
+          "name": "wdw",
+          "value": "dwd"
+        },
+        {
+          "name": "dw",
+          "value": "dw"
+        }
+      ],
+      "Comment": []
+    },
+    {
+      "name": "Name",
+      "description": "464546545",
+      "id": "12",
+      "image": "blob:http://localhost:4200/67a88e22-eee4-4b7c-9a2b-954e24ce55cd",
+      "price": [
+        {
+          "spec": "規格1",
+          "value": "100"
+        },
+        {
+          "spec": "規格2",
+          "value": "200"
+        }
+      ],
+      "store_id": "1",
+      "ad": [
+        [
+          "blob:http://localhost:4200/8486a619-721e-4938-b802-137d11c0835f"
+        ],
+        [
+          "blob:http://localhost:4200/9019f874-9c89-4ebd-ae50-05b7507aeda5"
+        ],
+        [
+          "blob:http://localhost:4200/056fd5e6-382a-4347-99af-fdd6b5d26893"
+        ]
+      ],
+      "Spec": [
+        {
+          "name": "品牌名稱",
+          "value": "name"
+        },
+        {
+          "name": "包裝組合",
+          "value": "多入組"
+        }
+      ],
+      "Comment": []
+    }
+  ],
+  "store": [
+    {
+      "name": "一號藥局",
+      "location": "台北市",
+      "product_rate": "3.7M",
+      "respond_rate": "95%",
+      "id": "1",
+      "image": "https://www.pandqpharmacy.com/store/picture/1202?zoomType=center%20full"
+    },
+    {
+      "name": "二號藥局",
+      "location": "台北市",
+      "product_rate": "3.7M",
+      "respond_rate": "95%",
+      "id": "2",
+      "image": "https://www.pandqpharmacy.com/store/picture/1202?zoomType=center%20full"
+    }
+  ],
+  "chatRoom": [
+    {
+      "id": "1",
+      "ownerId": "1",
+      "message": [
+        [
+          "hello"
+        ],
+        [
+          "hello2"
+        ]
+      ]
+    }
+  ]
+}

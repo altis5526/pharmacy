@@ -1,0 +1,41 @@
+<form>
+    <div class="form-group">
+        <label for="productName">請輸入商品名稱:</label>
+        <input type="text" class="name" name="productName" [(ngModel)]="ProductName" placeholder="Enter Product Name" />
+        <label for="productName">請上傳商品照片:</label>
+        <input type="file" (change)="handleImageUpload($event)" />
+        <img *ngIf="Image" [src]="Image" alt="Uploaded Image" />
+        <label for="productName">請輸入商品描述:</label>
+        <textarea id="message" name="description" required [(ngModel)]="Description"></textarea>
+        <label for="productName">請上傳廣告照片:</label>
+        <input type="file" id="adphoto" multiple="multiple" (change)="handleAdUpload($event)" />
+    </div>
+</form>
+
+<table>
+    <thead>
+      <tr>
+        <th>規格名稱</th>
+        <th>價格</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let row of Price; let i = index">
+        <td><input type="text" [(ngModel)]="row.spec" /></td>
+        <td><input type="text" [(ngModel)]="row.value" /></td>
+    </tr>
+    <button (click)="addPrice()">增加價格描述</button>
+</table>
+<table>
+    <thead>
+      <tr>
+        <th>規格名稱</th>
+        <th>描述</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let row of Spec; let i = index">
+        <td><input type="text" [(ngModel)]="row.name" /></td>
+        <td><input type="text" [(ngModel)]="row.value" /></td>
+    </tr>
+    <button (click)="addSpec()">增加規格描述</button>
+</table>
+<button (click)="submit()">完成並上架</button>

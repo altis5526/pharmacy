@@ -1,0 +1,33 @@
+.footer {
+  position: fixed;
+  background-color: #e4e4e4;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  height: 4%;
+}
+
+.white-text {
+  color: rgb(6, 6, 6);
+  text-decoration: none;
+  margin-left: 10px;
+  cursor: pointer;
+  font-family: 'Microsoft JhengHei', Arial, sans-serif;
+}
+
+.footer-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-right: 10px;
+}
+
+.footer-list li:not(:last-child)::after {
+  content: "|";
+  color: white;
+  margin-left: 10px;
+}

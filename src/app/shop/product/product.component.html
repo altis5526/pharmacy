@@ -1,0 +1,181 @@
+<body>
+    <div class="product-container" *ngIf="product.name != ''">
+        <div class="product-image">
+            <img src="{{product.image}}" alt="{{ product.name }}">
+        </div>
+        <div class="product-details">
+            <h2 class="product-name">{{product.name}}</h2>
+            <p class="product-description">{{product.description}}</p>
+            <div class="product-price">${{product.price[0].value}}</div>
+            <div class="product-options">
+                <label for="product-size">規格:</label>
+                <select id="product-size" [(ngModel)]="selectedSpec">
+                    <option *ngFor="let priceItem of product.price; let i = index" [value]="i">
+                        {{ priceItem.spec }}
+                    </option>
+                </select>
+                <label for="product-quantity">數量:</label>
+                <div id="product-quantity">
+                    <button (click)="decreaseQuantity()">-</button>
+                    <input type="number" id="product-quantity" [(ngModel)]="quantity" min="1">
+                    <button (click)="increaseQuantity()">+</button>
+                </div>
+            </div>
+            <button class="add-to-cart-button" (click)="addToCart(product.store_id,product.id,quantity)">加入購物車</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="store-info">
+            <img src={{storeInfo.image}} alt="Store Avatar">
+            <div>
+                <div class="store-name" [routerLink]="['/shop/store', product.store_id]" >{{storeInfo.name}}</div>
+                <div class="store-status">在線上</div>
+            </div>
+            <div class="product-ratings">
+                <div class="rating-label">商品評價</div>
+                <div class="rating-value">{{storeInfo.product_rate}}</div>
+                <div class="response-rate-label">聊聊回應率</div>
+                <div class="response-rate-value">{{storeInfo.respond_rate}}</div>
+            </div>
+            <button class="chat-button" (click)="chat()">聊聊</button>
+        </div>
+        <div class="info-pay-shipping">
+            <div class="payment-methods">
+                <h3>資訊付款方式：</h3>
+                <ul>
+                    <li>ATM轉帳</li>
+                    <li>信用卡分三期</li>
+                    <li>信用卡分六期</li>
+                    <li>信用卡刷卡</li>
+                    <li>LINE Pay</li>
+                </ul>
+            </div>
+
+            <div class="installment">
+                <h3>刷卡分期：</h3>
+                <ul>
+                    <li>單筆訂單金額滿3,000，3期27家</li>
+                    <li>單筆訂單金額滿6,000，6期27家</li>
+                </ul>
+            </div>
+
+            <div class="shipping-method">
+                <h3>運送方式：</h3>
+                <p>宅配</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="vendorContainer">
+        <ul class="vendordetailmenu">
+            <li (click)="showContent('productFeature')" [ngStyle]="{'background-color': currentContent === 'productFeature' ? '#f2f2f2' : 'inherit'}">商品特色</li>
+            <li (click)="showContent('productRating')" [ngStyle]="{'background-color': currentContent === 'productRating' ? '#f2f2f2' : 'inherit'}">商品評價(0)</li>
+            <li (click)="showContent('productSpec')" [ngStyle]="{'background-color': currentContent === 'productSpec' ? '#f2f2f2' : 'inherit'}">商品規格</li>
+            <li (click)="showContent('returnPolicy')" [ngStyle]="{'background-color': currentContent === 'returnPolicy' ? '#f2f2f2' : 'inherit'}">退/換貨需知</li>
+            <li (click)="showContent('relatedCategories')" [ngStyle]="{'background-color': currentContent === 'relatedCategories' ? '#f2f2f2' : 'inherit'}">相關類別</li>
+        </ul>
+
+        <div class="vendordetailview" id="productFeature" *ngIf="currentContent === 'productFeature'" >
+            <div *ngFor="let ad of product.ad">
+                <img src={{ad}} alt="Store Avatar">
+            </div>
+        </div>
+
+        <div class="comment-section" id="productRating" *ngIf="currentContent === 'productRating'">
+            <div class="comment" *ngFor="let comment of product.Comment">
+                <div class="info">{{comment.name}} - 2023年7月20日</div>
+                    <div class="content">
+                        <p>{{comment.value}}</p>
+                    </div>
+            </div>  
+        </div>
+
+        <div class="vendordetailview" id="productSpec" *ngIf="currentContent === 'productSpec'">
+            <table>
+                <tbody>
+                  <tr *ngFor="let spec of product.Spec">
+                    <td>{{ spec.name }}</td>
+                    <td>{{ spec.value }}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="vendordetailview" id="returnPolicy" *ngIf="currentContent === 'returnPolicy'">
+            <ul class="policy-list">
+            <li>
+                <h3>退換貨須知：</h3>
+                <ul>
+                    <li>
+                        <p>商品到貨享十天猶豫期之權益（注意！猶豫期非試用期），辦理退貨商品必須是全新狀態且包裝完整，商品一經拆封，等同商品價值已受損，僅能以福利品出售，若需退換貨，我方須收取價值損失之費用(回復原狀、整新費)，請先確認商品正確、外觀可接受，再行開機/使用，以免影響您的權利，祝您購物順心</p>
+                    </li>
+                    <li>
+                        <p>momo出貨已全程攝影，為保障您購物權益，開箱過程請全程錄影；如有問題請反映客服並提供錄影檔案，祝您購物愉快。</p>
+                    </li>
+                    <li>
+                        <p>下載版序號、珠寶、黃金類訂單之商品暫不提供線上退/換貨，3C類商品暫不提供換貨服務，其它商品僅限換貨1次。</p>
+                    </li>
+                    <li>
+                        <p>個人衛生用品除商品本身有瑕疵外，未拆封商品仍享有十天猶豫期之退貨權利。但已拆封 (如剪標、下水等情形…)，依據《通訊交易解除權合理例外情事適用準則》，本公司無法接受退換貨。
+                            ※個人衛生用品：泛指與肌膚及人體私密處接觸之商品，例如：內衣褲(含隱形胸罩、胸扥、胸貼、透明肩帶、水餃墊/美胸墊、襯裙)、塑身衣(含馬甲、束褲、束腿、腰夾、內搭)、泳裝、襪子、紙尿褲、牙刷….等。</p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3>運送服務：</h3>
+                <ul>
+                    <li>
+                        <p>此商品可配送離島區域，您可於結帳時，選擇離島地址配送。</p>
+                    </li>
+                    <li>
+                        <p>商品之實際配貨日期、退換貨日期，依我們向您另行通知之內容為準。</p>
+                    </li>
+                    <li>
+                        <p>標示『安心配』商品類別，因商品屬性關係，將有專人與您約定送貨時間(可約定出貨日30天內日期)。※若為預購商品，以下單日網頁公告之配送日期，於一個工作天內（不含例假日）與您約定送貨時間。</p>
+                    </li>
+                    <li>
+                        <p>針對大型商品(包括：大型家電、家具床墊、健身按摩器材、車類...等)，我們將於完成收款確認後，一天內〈不含例假日〉將會有專人與您確認相關配送細節等的聯繫。偏遠地區、樓層費及其它加價費用，皆由廠商於約定配送時一併告知，廠商將保留出貨與否的權利。</p>
+                    </li>
+                    <li>
+                        <p>依照客戶指定配送之商品(約配商品)接獲訂單逾30日您未通知出貨及受領商品，為了保障您的權益，本公司得取消訂單，請客戶重新下單購買。</p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3>售後服務：</h3>
+                <ul>
+                    <li>
+                        <p>如您收到商品，請依正常程序儘速檢查商品，若商品發生新品瑕疵之情形，您可申請更換新品或退貨，請直接點選聯絡我們。</p>
+                    </li>
+                    <li>
+                        <p>若您對於購買流程、付款方式、退貨及商品運送方式有疑問，你可直接點選會員中心。</p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3>特別說明：</h3>
+                <ul>
+                    <li>
+                        <p>本公司收到您下單(要約)後，仍需確認交易條件正確、供貨商品有庫存或服務可提供。如有無法接受訂單之異常情形，或您下單後未能完成正常付款，應視為訂單(買賣契約)全部自始不成立或失效，本公司得於合理期間內通知說明拒絕接受訂單。請您重新依需求下單訂購。</p>
+                    </li>
+                    <li>
+                        <p>本公司對於所販售具遞延性之商品或服務，消費者權益均受保障。如因合作廠商無法提供商品或服務，請與本公司聯繫辦理退貨或換成等值商品。</p>
+                    </li>
+                    <li>
+                        <p>※特惠商品，不適用折價券</p>
+                    </li>
+                </ul>
+            </li>
+            </ul>
+        </div>
+
+        <div class="vendordetailview" id="relatedCategories" *ngIf="currentContent === 'relatedCategories'">
+            <!-- 在這裡放相關類別的內容 -->
+        </div>
+    </div>
+</body>
+
+
+
+

@@ -1,0 +1,72 @@
+<div class="member-center" *ngIf="accountData!=null">
+    <div class="profile">
+      <h2>Profile</h2>
+      <div class="profile-info" >
+            <form>
+            <div>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" [(ngModel)]="accountData.name">
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" [(ngModel)]="accountData.email">
+            </div>
+            <div>
+              <label for="phone">Phone:</label>
+              <input type="tel" id="phone" name="phone" [(ngModel)]="accountData.phone">
+            </div>
+            <button type="submit" (click)="updateProfile()">Update Profile</button>
+          </form>
+      </div>
+    </div>
+    <div class="orders">
+      <h2>Order History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>訂單編號</th>
+            <th>訂單成立時間</th>
+            <th>商品id/規格/數量</th>
+            <th>總價</th>
+            <th>配送進度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let order of accountData.order_list;let i = index ">
+            <tr>
+              <td>{{ order.orderId }}</td>
+              <td>{{ order.startTime }}</td>
+              <td class="center-cell"  *ngIf="matchedProduct[i]">
+                <div class="detail" *ngFor="let itemRow of order.item" >
+                  <td>{{ matchedProduct[i].name }}</td>
+                  <td>{{ matchedProduct[i]!.price[itemRow[3]].spec}}</td>
+                  <td>{{ itemRow[2] }}</td>
+                </div>
+              </td>
+              <td>${{ order.totalAmount }}</td>
+              <td>
+                <div class="progress">
+                  <span class="progress-marker" [ngClass]="{'green': order.status=='confirm'}">●</span>成立訂單
+                  <span class="progress-marker" [ngClass]="{'green': order.status=='available'}">●</span>出貨/可到店取貨
+                  <span class="progress-marker" [ngClass]="{'green': order.status=='arrive'}">●</span>已送達
+                  <span class="progress-marker" [ngClass]="{'green': order.status=='complete'}">●</span>完成訂單
+                </div>
+              </td>
+              <td>
+                <button *ngIf="order.status=='arrive'" (click)="complete(i)">完成訂單</button>
+              </td>
+              <div class="comment-form" *ngIf="order.status=='complete' && !isSubmit">
+                <h3>發表留言</h3>
+                <form>
+                    <label for="message">留言內容</label>
+                    <textarea id="message" name="message" required [(ngModel)]="messageContent"></textarea>
+        
+                    <button type="button" (click)="submit(i)">提交留言</button>
+                </form>
+            </div>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+</div>

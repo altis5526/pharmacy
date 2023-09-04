@@ -1,0 +1,106 @@
+.member-center {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .profile {
+    margin-bottom: 20px;
+  }
+  
+  .profile h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .profile-info p {
+    margin: 5px 0;
+  }
+  .profile-info input{
+    width: 50%;
+    margin-bottom: 10px;
+  }
+  .profile button{
+    margin-top: 10px;
+  }
+
+  .orders h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th,td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+  }
+  .detail{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+  }
+  .detail:last-child{
+    border-bottom: none; 
+  }
+  .detail td { 
+    border-bottom: none; /* 移除 <td> 元素的底部邊線 */
+  }
+  .center-cell {
+    vertical-align: middle; /* 垂直置中內容 */
+  }
+  th {
+    background-color: #f0f0f0;
+  }
+  .progress {
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    font-size: 15px;
+  }
+  
+  .progress-marker {
+    width: 10px;
+    height: 10px;
+    color: gray;
+    border-radius: 50%;
+    margin-right: 2px;
+    margin-left: 12px;
+  }
+
+  .green {
+    color: green;
+  }
+  .comment-form {
+    margin-top: 20px;
+  }
+  
+  .comment-form label,
+  .comment-form textarea,
+  .comment-form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .comment-form textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .comment-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }

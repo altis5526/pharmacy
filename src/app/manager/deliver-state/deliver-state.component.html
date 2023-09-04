@@ -1,0 +1,41 @@
+<div class="order-container">
+    <h1>訂單資訊</h1>
+    <ul class="order-list">
+      <li *ngFor="let order of manager.order_list; let i = index" class="order-item">
+        <h2>Order ID: {{ order.orderId }}</h2>
+        <div>
+          <p>User ID: {{ order.userId }}</p>
+          <p>Start Time: {{ order.startTime }}</p>
+          <p>Total Amount: ${{ order.totalAmount }}</p>
+          <p>Phone: {{ order.phone }}</p>
+          <p>Shipping Method: {{ order.shipMethod }}</p>
+          <p>Payment Method: {{ order.payMethod }}</p>
+        </div>
+        <div class="confirm-button" *ngIf="order.status=='submit'"> 
+            <button (click)="modifyStatus(i,'confirm')">成立訂單</button>
+        </div>
+        <div class="progress" *ngIf="order.status!='submit'">
+            <span class="progress-marker" (click)="modifyStatus(i,'confirm')" [ngClass]="{'green': order.status=='confirm'}">●</span>成立訂單
+            <span class="progress-marker" (click)="modifyStatus(i,'available')" [ngClass]="{'green': order.status=='available'}">●</span>出貨/可到店取貨
+            <span class="progress-marker" (click)="modifyStatus(i,'arrive')" [ngClass]="{'green': order.status=='arrive'}">●</span>已送達
+            <span class="progress-marker" [ngClass]="{'green': order.status=='complete'}">●</span>完成訂單
+        </div>
+        <table class="item-table">
+            <thead>
+              <tr>
+                <th>商品id</th>
+                <th>規格</th>
+                <th>數量</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let itemRow of order.item; let i = index">
+                <td>{{ itemRow[1] }}</td>
+                <td>{{ itemRow[3] }}</td>
+                <td>{{ itemRow[2] }}</td>
+              </tr>
+            </tbody>
+        </table>
+      </li>
+    </ul>
+</div>

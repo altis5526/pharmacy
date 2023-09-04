@@ -1,0 +1,28 @@
+<form [formGroup]="registrationForm" (submit)="register()">
+    <div class="form-control">
+      <label for="username">Username</label>
+      <input type="text" id="username" formControlName="username">
+    </div>
+    <div class="form-control">
+      <label for="phoneNumber">PhoneNumber</label>
+      <input type="text" id="phoneNumber" formControlName="phoneNumber">
+    </div>
+    <div class="form-control">
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password">
+    </div>
+
+    <div class="form-control">
+        <label for="confirmpassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+    </div>
+    <div class="form-control">
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email">
+    </div>
+    <div *ngIf="registrationForm.hasError('mismatch', 'confirmPassword')">
+        Password and Confirm Password must match.
+    </div>
+    
+    <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+  </form>

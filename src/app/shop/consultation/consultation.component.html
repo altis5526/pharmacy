@@ -1,0 +1,68 @@
+<div class="container-fluid" *ngIf="showScreen">
+
+  <div class="row">
+
+    <div class="col-md-4">
+
+      <div class="user-list-card">
+        <div class="user-card"
+            [ngClass]="{'active': user?.id === selectedUser?.id}"
+             *ngFor="let user of userList"
+             (click)="selectUserHandler(user.id)">
+
+        <img src="" alt={{user.name}} class="avatar"/>
+        <p class="username">{{user.name}}</p>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-8">
+
+      <div class="chat-container">
+        <ng-container *ngIf="selectedUser">
+          <div class="chat-header">
+            <img src="" alt={{selectedUser?.name}} class="avatar"/>
+            <p class="username">{{selectedUser?.name}}</p>
+          </div>
+
+          <div class="chat-body">
+            <div *ngFor="let item of messageArray" [ngClass]="{'same-user': item?.user === currentUser.name}">
+              <p class="message-container">{{item?.message}}</p>
+            </div>
+          </div>
+
+          <div class="chat-footer">
+
+            <div class="row">
+              <div class="col-md-10">
+                <div class="form-group mb-0">
+                  <input type="text"
+                         placeholder="Type a message"
+                         class="form-control"
+                         [(ngModel)]="messageText"
+                         (keyup.enter)="sendMessage()"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-2 text-center align-self-center">
+                <button class="btn btn-primary btn-sm px-3" (click)="sendMessage()">Send</button>
+              </div>
+              <div class="clear message">
+                <button class="btn btn-primary btn-sm px-3" (click)="clearChatHistory()">Clear</button>
+              </div>
+            </div>
+
+          </div>
+        </ng-container>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+

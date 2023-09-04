@@ -1,0 +1,38 @@
+<body>
+    <div class="store-info">
+        <table>
+          <tr>
+            <td rowspan="2">
+                <img src={{storeInfo.image}} alt="Store Avatar">
+            </td>
+            <td colspan="2" class="store-info-cell">
+                <div class="store-name">{{storeInfo.name}}</div>
+                <div class="store-status">在線上</div>
+              </td>
+            <td colspan="2" class="product-ratings">
+              <div class="rating-label">商品評價</div>
+              <div class="rating-value">{{storeInfo.product_rate}}</div>
+              <div class="response-rate-label">聊聊回應率</div>
+              <div class="response-rate-value">{{storeInfo.respond_rate}}</div>
+            </td>
+            <td rowspan="2">
+                <button class="chat-button" (click)="chat()">聊聊</button>
+            </td>
+          </tr>
+          <tr> 
+          </tr>
+        </table>
+      </div>
+    <div class="right-menu">
+        <section id="products" class="products" (scroll)="onScroll()" >
+            <div class="product" *ngFor="let product of displayedProducts" [routerLink]="['/shop/product', product.store_id, product.id]" >
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <!-- <a [routerLink]="['/product', product.id]">查看詳情</a> -->
+                <img src={{product.image}} alt='{{ product.name }}圖片'>
+                <p class="price">${{product.price[0].value}}</p>
+            </div>
+        </section>
+    </div>   
+</body>
+
