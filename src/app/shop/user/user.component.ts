@@ -22,7 +22,7 @@ export class UserComponent {
   constructor(private http: HttpClient, private loginservice: LoginService, private router:Router) { }
   ngOnInit(){
     this.loginservice.user_id$.subscribe(res =>{
-      this.userId='3';
+      this.userId=res;
       this.http.get<User[]>('http://localhost:3000/profile').subscribe(data =>{
       this.accountData = data[parseInt(this.userId)-1];
       })
