@@ -94,5 +94,9 @@ export class StoreComponent implements OnInit {
       }
       this.router.navigate(['/shop/chat']);
     }
+    else{
+      alert('請先登入')
+      this.router.navigate(['/shop/login']);
+    }
   }
 }

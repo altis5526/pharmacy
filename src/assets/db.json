@@ -7,7 +7,11 @@
       "password": "2",
       "email": "dsa@gmail.com",
       "shop_list": [],
-      "room_id": [],
+      "room_id": [
+        {
+          "1": "1-room-1"
+        }
+      ],
       "deliver_info": {
         "selectedDeliveryArea": "",
         "selectedPayMethod": "",
@@ -60,9 +64,9 @@
         {
           "orderId": "0666",
           "startTime": "08/30 10:45",
-          "confirmTime": "08/30 16:55",
-          "deliverTime": "08/30 16:55",
-          "arriveTime": "08/30 16:55",
+          "confirmTime": "09/04 21:42",
+          "deliverTime": "09/04 21:42",
+          "arriveTime": "09/04 21:42",
           "completeTime": "08/30 16:55",
           "item": [
             [
@@ -79,27 +83,27 @@
             ]
           ],
           "totalAmount": "900",
-          "status": "complete",
+          "status": "arrive",
           "shipMethod": "宅配",
           "payMethod": "信用卡分三期"
         },
         {
-          "orderId": "7593",
-          "startTime": "08/30 14:59",
-          "confirmTime": "none",
+          "orderId": "5204",
+          "startTime": "09/04 21:52",
+          "confirmTime": "09/04 21:53",
           "deliverTime": "none",
-          "arriveTime": "none",
-          "completeTime": "none",
+          "arriveTime": "09/04 21:53",
+          "completeTime": "09/04 21:53",
           "item": [
             [
-              2,
-              2,
               1,
+              1,
+              3,
               0
             ]
           ],
-          "totalAmount": "100",
-          "status": "submit",
+          "totalAmount": "300",
+          "status": "complete",
           "shipMethod": "宅配",
           "payMethod": "信用卡分三期"
         }
@@ -113,7 +117,7 @@
       "id": "1",
       "room_id": [
         {
-          "1": "1-room-3"
+          "1": "1-room-1"
         }
       ],
       "order_list": [
@@ -136,6 +140,24 @@
           ],
           "startTime": "08/30 14:59",
           "totalAmount": "900",
+          "phone": "0936483853",
+          "shipMethod": "宅配",
+          "payMethod": "信用卡分三期",
+          "status": "arrive"
+        },
+        {
+          "userId": "3",
+          "orderId": "5204",
+          "item": [
+            [
+              1,
+              1,
+              3,
+              0
+            ]
+          ],
+          "startTime": "09/04 21:52",
+          "totalAmount": "300",
           "phone": "0936483853",
           "shipMethod": "宅配",
           "payMethod": "信用卡分三期",
@@ -233,6 +255,10 @@
         {
           "name": "張祐嘉",
           "value": "75252542"
+        },
+        {
+          "name": "張祐嘉",
+          "value": "hello"
         }
       ]
     },
@@ -424,84 +450,6 @@
           "value": "留言"
         }
       ]
-    },
-    {
-      "name": "產品11",
-      "description": "test",
-      "id": "11",
-      "image": "blob:http://localhost:4200/020e0791-acd1-477c-8a5d-b3b4dcccea28",
-      "price": [
-        {
-          "spec": "spec1",
-          "value": "100"
-        },
-        {
-          "spec": "spec2",
-          "value": "100"
-        }
-      ],
-      "store_id": "1",
-      "ad": [
-        [
-          "blob:http://localhost:4200/2fcd9bf6-cf3e-4712-a31b-3f0ed1797e43"
-        ],
-        [
-          "blob:http://localhost:4200/cf119c56-3009-4c0f-955f-3c3aa57625b1"
-        ],
-        [
-          "blob:http://localhost:4200/7fe8eab3-6eab-424c-9a6b-f0167c0348b5"
-        ]
-      ],
-      "Spec": [
-        {
-          "name": "wdw",
-          "value": "dwd"
-        },
-        {
-          "name": "dw",
-          "value": "dw"
-        }
-      ],
-      "Comment": []
-    },
-    {
-      "name": "Name",
-      "description": "464546545",
-      "id": "12",
-      "image": "blob:http://localhost:4200/67a88e22-eee4-4b7c-9a2b-954e24ce55cd",
-      "price": [
-        {
-          "spec": "規格1",
-          "value": "100"
-        },
-        {
-          "spec": "規格2",
-          "value": "200"
-        }
-      ],
-      "store_id": "1",
-      "ad": [
-        [
-          "blob:http://localhost:4200/8486a619-721e-4938-b802-137d11c0835f"
-        ],
-        [
-          "blob:http://localhost:4200/9019f874-9c89-4ebd-ae50-05b7507aeda5"
-        ],
-        [
-          "blob:http://localhost:4200/056fd5e6-382a-4347-99af-fdd6b5d26893"
-        ]
-      ],
-      "Spec": [
-        {
-          "name": "品牌名稱",
-          "value": "name"
-        },
-        {
-          "name": "包裝組合",
-          "value": "多入組"
-        }
-      ],
-      "Comment": []
     }
   ],
   "store": [

@@ -127,6 +127,9 @@ export class ProductComponent implements OnInit{
         this.http.put('http://localhost:3000/profile/'+this.userId,this.accountData).subscribe()
       }
       this.router.navigate(['/shop/chat']);
+    }else{
+      alert('請先登入')
+      this.router.navigate(['/shop/login']);
     }
   }
 }
