@@ -87,10 +87,7 @@ export class LoginComponent {
     let matchedAccount;
     let matchedAccountIndex;
     let identity: string='user';
-    // this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(user=>{
-    //   this.user = user;
-    //   console.log(this.user)
-    // })
+
     matchedAccount = this.accountData.find(account =>
       account.name === this.user.name && account.email === this.user.email);
     if(matchedAccount){
@@ -100,7 +97,25 @@ export class LoginComponent {
         alert('登入成功！');
     }else{
       //尚未註冊(加入db)
-      let newUser!: User;
+      let newUser: User={
+        id: String(this.last_id+1),
+        phone: "",
+        name: this.user.name,
+        password: "",
+        email: this.user.email,
+        shop_list: [],
+        room_id: [],
+        deliver_info: {
+          selectedDeliveryArea: "",
+          selectedPayMethod: "",
+          selectedDeliveryMethod: "",
+          memberName: this.user.name,
+          memberPhone: "",
+          selectedInvoiceType:""
+        },
+        order_list: []
+      }
+
       this.http.post<User>('http://localhost:3000/profile', newUser)
         .subscribe(response => {
           console.log('New user added:', response);

@@ -8,18 +8,18 @@ form{
     background-color: #f7e4cd;
 }
 .form-control {
-    margin-bottom: 10px;
     position: relative;
-    margin-bottom: 16px;
+    margin-bottom: 50px;
   }
   
   label {
     font-weight: bold;
+    width: 50%;
   }
   input[type="text"],
   input[type="password"],
   input[type="email"] {
-    width: 96%;
+    width: 100%;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;

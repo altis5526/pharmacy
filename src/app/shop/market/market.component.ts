@@ -97,7 +97,6 @@ export class MarketComponent implements OnInit{
   getTotalItems(): number {
     return this.matchedItems.reduce((total, item, index) => total + this.quantity[index], 0);
   }
-
   getTotalPrice(): number {
     return this.matchedItems.reduce((total, item, index) => total + parseInt(item.price[this.spec[index]].value,10) * this.quantity[index], 0);
   }
@@ -171,6 +170,7 @@ export class MarketComponent implements OnInit{
         this.http.put('http://localhost:3000/manager/'+String(store),this.store).subscribe()
     })
     }
+    console.log(this.accountData.shop_list)
     this.accountData.shop_list=[];
     this.http.put('http://localhost:3000/profile/'+String(this.userId),this.accountData).subscribe()
     alert('已送出訂單')
