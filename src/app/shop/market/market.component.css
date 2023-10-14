@@ -17,20 +17,21 @@
     align-items: center;
     margin-bottom: 20px;
     background-color: palegoldenrod;
+  }
+  .cart-item h2{
     cursor: pointer;
   }
-  
   .cart-item img:last-child{
     position: relative;
     right:10px;
     width: 30px;
+    cursor: pointer;
   }
   .item-image {
     width: 100px;
     height: 100px;
     object-fit: cover;
     margin-right: 20px;
-    cursor: pointer;
   }
   
   .item-details {

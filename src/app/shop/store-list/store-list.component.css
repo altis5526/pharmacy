@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center; /* 水平居中 */
+}
+  section.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .product {
+    width: 35%;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    border-radius: 4%; 
+  }
+  .product img {
+    max-width: 100%;
+    height: auto;
+  }
+  .product:hover {
+    /* 添加你想要的樣式，例如修改背景顏色、添加陰影效果等 */
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }

@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LobbyComponent } from './lobby/lobby.component';
 import { LoginComponent } from './login/login.component';
+import { StoreListComponent } from './store-list/store-list.component';
 
 import { ShopRoutingModule } from './shop-routing.module';
 import { FormsModule } from '@angular/forms';
@@ -27,7 +28,8 @@ import { StoreComponent } from './store/store.component';
     FooterComponent,
     LobbyComponent,
     LoginComponent,
-    StoreComponent
+    StoreComponent,
+    StoreListComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-<div class="order-container">
+<div class="order-container" *ngIf="manager!=null">
     <h1>訂單資訊</h1>
     <ul class="order-list">
       <li *ngFor="let order of manager.order_list; let i = index" class="order-item">
@@ -40,4 +40,25 @@
     </ul>
     <button routerLink="/shop/chat">chatRoom</button>
     <button routerLink="/productUpload">productUpload</button>
+    <div class="profile">
+      <h2>Manager Profile</h2>
+      <div class="profile-info" >
+            <form>
+            <div>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" [(ngModel)]="storeInfo.name">
+            </div>
+            <div>
+              <label for="location">location:</label>
+              <input type="text" id="location" name="location" [(ngModel)]="storeInfo.location">
+            </div>
+            <div>
+              <label for="productName">請上傳商品照片:</label>
+              <input type="file" (change)="handleImageUpload($event)" />
+            </div>
+
+            <button type="submit" (click)="updateProfile()">Update Profile</button>
+          </form>
+      </div>
+    </div>
 </div>

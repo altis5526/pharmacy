@@ -1,4 +1,10 @@
 <form [formGroup]="registrationForm" (submit)="register()">
+    <div class="select-user">
+      <label for="user">User</label>
+      <select id="user" formControlName="selectedUser" name="user" >
+      <option *ngFor="let option of userOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
     <div class="form-control">
       <label for="username">Username</label>
       <input type="text" id="username" formControlName="username">
@@ -11,10 +17,9 @@
       <label for="password">Password</label>
       <input type="password" id="password" formControlName="password">
     </div>
-
     <div class="form-control">
-        <label for="confirmpassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+      <label for="confirmpassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" formControlName="confirmPassword">
     </div>
     <div class="form-control">
       <label for="email">Email</label>
@@ -25,4 +30,4 @@
     </div>
     
     <button type="submit" [disabled]="registrationForm.invalid">Register</button>
-  </form>
+</form>

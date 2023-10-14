@@ -79,6 +79,7 @@ export class MarketComponent implements OnInit{
         this.orderForm.get('invoiceInfo.selectedInvoiceType')!.setValue(this.accountData.deliver_info.selectedInvoiceType);
       })
     this.loginservice.login_status$.subscribe(res=>this.login_status=res)  
+    this.loginservice.chart_item$.subscribe();
   }
   getmatchedItems(){
     this.matchedItems=[];
@@ -182,7 +183,9 @@ export class MarketComponent implements OnInit{
         return !(String(item[0])==store_id && String(item[1]) == id && String(item[3])==String(this.spec[index]))
       });
       this.getmatchedItems();
-      this.http.put('http://localhost:3000/profile/'+String(this.userId),this.accountData).subscribe()
+      this.http.put('http://localhost:3000/profile/'+String(this.userId),this.accountData).subscribe(()=>{
+        this.loginservice.updateItem();
+      })
     };
   }
   decreaseQuantity(index:number){

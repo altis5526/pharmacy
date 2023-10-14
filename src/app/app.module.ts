@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { PrescriptionComponent } from './prescription/prescription.component';
 import { DeliverStateComponent } from './manager/deliver-state/deliver-state.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 const isIE =
   window.navigator.userAgent.indexOf("MSIE ") > -1 ||
@@ -20,7 +23,9 @@ const isIE =
   ],
   imports: [
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

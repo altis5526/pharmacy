@@ -48,22 +48,28 @@ export class ProductComponent implements OnInit{
   };
   public accountData!: User;
   public managerInfo: Producer | null = null;
-  constructor(private route: ActivatedRoute,private http: HttpClient, private loginService:LoginService, private router:Router) {}
 
+
+  constructor(private route: ActivatedRoute,private http: HttpClient, private loginService:LoginService, private router:Router) {
+    this.http.get<Product[]>('http://localhost:3000/product').subscribe(data =>{
+      this.productId = this.route.snapshot.paramMap.get('id');
+      this.product = data[this.productId-1];
+      this.selectedSpec = this.product.price[0].spec;
+    })
+  }
+  
   ngOnInit() {
     //確認點擊的產品以及店家資訊
-    this.productId = this.route.snapshot.paramMap.get('id');
+    this.selectedSpec = '0';
     this.storeId = this.route.snapshot.paramMap.get('store_id');
 
-    this.http.get<Product[]>('http://localhost:3000/product').subscribe(data =>{
-      this.product = data[this.productId-1]
-    })
     this.http.get<storeInfo[]>('http://localhost:3000/store').subscribe(data =>{
       this.storeInfo = data[this.storeId-1]
     })
     this.http.get<Producer[]>('http://localhost:3000/manager').subscribe(data =>{
       this.managerInfo = data[this.storeId-1]
     })
+    
     // 根據 productId 加載產品資料，執行相應的操作
     this.loginService.user_id$.subscribe(res =>{
       this.userId=res
@@ -72,6 +78,7 @@ export class ProductComponent implements OnInit{
     })
     });
     this.loginService.login_status$.subscribe(res => this.login_status=res)
+    this.loginService.chart_item$.subscribe();
   }
   addToCart(store_id:string,item_id:string,quantity:number) {
     if(this.login_status==true){
@@ -87,10 +94,26 @@ export class ProductComponent implements OnInit{
       else{
         this.accountData.shop_list.push([parseInt(store_id),parseInt(item_id),quantity,parseInt(this.selectedSpec,10)]);
       }
-      this.http.put('http://localhost:3000/profile/'+this.userId,this.accountData).subscribe()
-      })
+      this.http.put('http://localhost:3000/profile/'+this.userId,this.accountData).subscribe(() => {
+        this.loginService.updateItem();
+      });
       this.quantity=1;
+      })
+      alert('已加入購物車')
+    }else{
+      alert('請先登入')
+      this.router.navigate(['/shop/login']);
     }
+  }
+  getCatagories(){
+    // console.log(this.accountData.shop_list)
+    let uniqueCategories = new Set();
+    for (const item of this.accountData.shop_list) {
+      const categoryKey = item.filter(value => [0, 1, 3].includes(value)).join(' ');
+      uniqueCategories.add(categoryKey);
+    }
+    
+    return uniqueCategories.size;
   }
   showContent(contentId: string) {
     this.currentContent=contentId

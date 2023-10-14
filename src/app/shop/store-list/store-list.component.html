@@ -1,0 +1,12 @@
+<body>
+    <div class="right-menu">
+        <section id="products" class="products" (scroll)="onScroll()" >
+        <div class="product" *ngFor="let store of displayedStores" [routerLink]="['/shop/store', store.id]">
+            <h2>{{ store.name }}</h2>
+            <p>{{ store.location }}</p>
+            <img src={{store.image}} alt='{{ store.name }}圖片'>
+            </div>
+        </section>
+    </div>    
+</body>
+

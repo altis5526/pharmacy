@@ -13,7 +13,7 @@ import { DOCUMENT } from '@angular/common';
 export class FooterComponent {
   login_status:boolean=false;
   public accountData!: User|storeInfo;
-
+  quantity: number=0;
   constructor(private loginservice:LoginService,private http: HttpClient, private router:Router,@Inject(DOCUMENT) private _document: Document){}
 
   ngOnInit(){
@@ -33,6 +33,7 @@ export class FooterComponent {
         }
     });
   })
+  this.loginservice.chart_item$.subscribe(res=>this.quantity=res)
   }
   logout(){
     alert('您已登出');

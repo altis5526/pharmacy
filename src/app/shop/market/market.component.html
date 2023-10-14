@@ -2,10 +2,10 @@
     <h1>Shopping Cart</h1>
   
     <div class="cart-items">
-      <div class="cart-item" *ngFor="let item of matchedItems; let i = index" [routerLink]="['/shop/product', item.store_id, item.id]" >
+      <div class="cart-item" *ngFor="let item of matchedItems; let i = index"  >
         <img src="{{ item.image }}" alt="{{ item.name }}" class="item-image">
         <div class="item-details">
-          <h2>{{ item.name }}</h2>
+          <h2 [routerLink]="['/shop/product', item.store_id, item.id]">{{ item.name }}</h2>
           <p>規格: {{ item.price[spec[i]].spec }}</p>
           <p>價格: ${{ item.price[spec[i]].value }}</p>
           <p>數量:</p>
