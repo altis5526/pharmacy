@@ -127,6 +127,24 @@
         "selectedInvoiceType": ""
       },
       "order_list": []
+    },
+    {
+      "id": "5",
+      "phone": "",
+      "name": "陳祺侑",
+      "password": "",
+      "email": "altis5526@gmail.com",
+      "shop_list": [],
+      "room_id": [],
+      "deliver_info": {
+        "selectedDeliveryArea": "",
+        "selectedPayMethod": "",
+        "selectedDeliveryMethod": "",
+        "memberName": "陳祺侑",
+        "memberPhone": "",
+        "selectedInvoiceType": ""
+      },
+      "order_list": []
     }
   ],
   "manager": [

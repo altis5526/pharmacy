@@ -8,6 +8,9 @@ import { PrescriptionComponent } from './prescription/prescription.component';
 import { DeliverStateComponent } from './manager/deliver-state/deliver-state.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PharmacyListComponent } from './test_component/pharmacy-list/pharmacy-list.component';
+import { PharmacyDetailsComponent } from './test_component/pharmacy-details/pharmacy-details.component';
+import { AddPharmacyComponent } from './test_component/add-pharmacy/add-pharmacy.component';
 
 
 const isIE =
@@ -19,13 +22,16 @@ const isIE =
     AppComponent,
     MenuComponent,
     PrescriptionComponent,
-    DeliverStateComponent
+    DeliverStateComponent,
+    AddPharmacyComponent,
+    PharmacyDetailsComponent,
+    PharmacyListComponent,
   ],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

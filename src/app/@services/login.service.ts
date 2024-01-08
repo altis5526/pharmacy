@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { User} from 'src/app/interface';
+import { Observable } from 'rxjs';
+import { Store } from 'src/app/models/store.model';
+
+const baseUrl = 'http://localhost:8080/api/pharmacy';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +35,34 @@ export class LoginService {
     this.login_status.next(false);
     this.user_id.next('');
     this.identity.next('none')
+  }
+
+  getAll(): Observable<Store[]> {
+    return this.http.get<Store[]>(baseUrl);
+  }
+
+  get(id: any): Observable<Store> {
+    return this.http.get(`${baseUrl}/${id}`);
+  }
+
+  create(data: any): Observable<any> {
+    return this.http.post(baseUrl, data);
+  }
+
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/${id}`, data);
+  }
+
+  delete(id: any): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
+  }
+
+  deleteAll(): Observable<any> {
+    return this.http.delete(baseUrl);
+  }
+
+  findByTitle(title: any): Observable<Store[]> {
+    return this.http.get<Store[]>(`${baseUrl}?title=${title}`);
   }
   
 
