@@ -33,4 +33,17 @@ npm start // start angular
 
 node index.js //socket server
 
-json-server --watch .\db.json --id id //json server
+json-server --watch ./src/assets/db.json --id id //json server
+
+## How to launch our program
+### Frontend Server 1: listening on localhost:4200
+```
+npm start
+```
+### Backend Server 2: listening on localhost:8000
+```
+cd backend_server
+python manage.py runserver
+```
+### Database Server 3: listening on localhost:5432
+

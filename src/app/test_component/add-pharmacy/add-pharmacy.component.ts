@@ -21,11 +21,11 @@ export class AddPharmacyComponent implements OnInit {
   }
 
   savePharmacy(): void {
+    console.log("hihi");
     const data = {
       title: this.store.title,
       description: this.store.description
     };
-
     this.loginService.create(data)
       .subscribe(
         response => {

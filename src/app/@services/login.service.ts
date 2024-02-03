@@ -6,7 +6,7 @@ import { User} from 'src/app/interface';
 import { Observable } from 'rxjs';
 import { Store } from 'src/app/models/store.model';
 
-const baseUrl = 'http://localhost:8080/api/pharmacy';
+const baseUrl = 'http://localhost:8000/api/pharmacy';
 @Injectable({
   providedIn: 'root'
 })

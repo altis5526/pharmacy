@@ -52,10 +52,10 @@ def pharmacy_detail(request, pk):
     elif request.method == 'PUT': 
         pharmacy_data = JSONParser().parse(request) 
         pharmacy_serializer = PharmacySerializer(pharmacy, data=pharmacy_data) 
-        if tutorial_serializer.is_valid(): 
-            tutorial_serializer.save() 
-            return JsonResponse(tutorial_serializer.data) 
-        return JsonResponse(tutorial_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        if pharmacy_serializer.is_valid(): 
+            pharmacy_serializer.save() 
+            return JsonResponse(pharmacy_serializer.data) 
+        return JsonResponse(pharmacy_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE': 
         pharmacy.delete() 
